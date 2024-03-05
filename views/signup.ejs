@@ -1,0 +1,44 @@
+<% include ./partials/header.ejs %>
+
+<style>
+@media only screen and (max-width: 600px) {
+    
+.inputs{
+    width: 80vw;
+}    
+.row{
+    margin-right: 50vw;
+}
+.text{
+    font-size: 22px;
+    margin-bottom: 7vw;
+}
+    
+    }
+</style>
+
+<h3 class="col-6 offset-3 text" style="margin-top: 3rem;">Signup on Nestify</h3>
+
+<div class="row" style="margin-bottom: 11rem;">
+    <div class="col-6 offset-3">
+        <form action="/signup" method="post" class="needs-validation" >
+            <div class="col-6">
+                <label for="username"> username</label>
+                <input required   class="inputs" type="text" id="username"  name="username">
+            </div>
+            <div class="col-6">
+                <label for="email"> Email</label>
+                <input required   class="inputs" type="text" id="email"  name="email">
+            </div>
+            <div>
+               <label for="password"> Password</label>
+                <input required   class="inputs" type="text" id="password" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-success mt-3">Signup</button>
+        </form>
+    </div>
+</div>
+
+
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,50 @@
+<% include ./partials/header.ejs %>
+
+<style>
+  @media only screen and (max-width: 600px) {
+
+    .inputs{
+    width: 80vw;
+}    
+.row{
+    margin-right: 20vw;
+}
+.text{
+    font-size: 30px;
+    margin-bottom: 5vw;
+}
+  }
+</style>
+    <h1 class="newlist">Create new list</h1>
+
+    <div class="createList">
+    <form  action="/addListing" method="post" enctype="multipart/form-data">
+
+        <input required class="inputs"  type="text" placeholder="Enter Title" name="title">
+        <div class="mb-3 mt-2">
+            <label for="image">Upload Listing Image</label>
+            <input type="file"
+             name="image"
+              class="form-control inputs">
+              required
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Enter Listings Category
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Farms</a></li>
+              <li><a class="dropdown-item" href="#">Beach</a></li>
+              <li><a class="dropdown-item" href="#">Mountains</a></li>
+            </ul>
+          </div>
+        <textarea required class="inputs form-control" placeholder="Enter Description" name="description" id="" cols="30" rows="10"></textarea>
+        <input required class="inputs form-control" type="number" placeholder="Enter Price" name="price">
+        <input required class="inputs form-control" type="text" placeholder="Enter Location" name="location">
+        <input required class="inputs form-control" type="text" placeholder="Enter Country" name="country">
+        <button class="btn-delete" type="submit">Add</button>
+ 
+     </form>
+
+    </div>
+     <% include ./partials/footer.ejs %>

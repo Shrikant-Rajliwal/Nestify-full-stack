@@ -1,0 +1,231 @@
+.inputs{
+  display: block;
+  justify-content: center;
+  margin-top: 10px;
+}
+.homeList{
+  display: flex;
+  justify-content: center;
+}
+.disp-image{
+  width: 35rem;
+  margin-top: 40px ;
+  margin-bottom: 30px ;
+  border-radius: 1rem;
+}
+.disp{
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.disp-title{
+  margin-top: 10px;
+  margin-bottom: -10px;
+font-size: 27px;
+}
+.disp-price{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 4px;
+}
+.newlist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.navbar{
+  height: 5rem;
+  background: #e4e0e0;
+}
+.fa-compass{
+  color: #fe424d;
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+.nav-link{
+  color:#0b0808 !important;
+  font-size: larger;
+  font-weight: 500;
+}
+.nav-item{
+  color:#ce8e8e !important;
+  font-size: 22px;
+  font-weight: 500;
+}
+.f-info{
+  background: #dcd8d8;
+   bottom: 0;
+   width: 100%;
+}
+.info-social{
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  margin: 15px;
+  padding-top: 15px;
+
+
+}
+.createList{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+}
+.fa-brands{
+  margin-right: 15px;
+}
+.f-info-links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration:none;
+  color: #222222;
+  margin-right: 15px;
+  height: 3rem;
+  font-size:medium;
+  font-weight:600;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:32px;
+  font-weight:600;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+
+
+}
+.title-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:20px;
+  font-weight:600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+ 
+  
+  
+}
+.card{
+    margin-bottom: 2rem;
+    /* margin-right: 10px; */
+    border: none !important;
+    width: 20px;
+}
+.card-review{
+    margin-bottom: 2rem;
+    margin-right: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    
+}
+.card-img-top{
+  border-radius: 1rem;
+  width: 100%;
+  object-fit: cover;
+  
+}
+.card-img-top:hover{
+  opacity: 0.9;
+}
+.card-text1{
+  font-weight: 700;
+  font-size: medium;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.card-text{
+  font-weight: 500;
+  font-size: medium;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.inputs{
+  border-radius: 4px;
+  width: 30rem;
+}
+.forms{
+  width: 50%;
+}
+.create-btn{
+  background-color: rgb(11, 219, 25);
+  color: rgb(240, 248, 255);
+  padding: 4px 50px;
+  font-weight: 500;
+  font-size: large;
+  border: none;
+  border-radius: 1rem;
+}
+.edit-btn{
+  background-color: rgb(250, 230, 12);
+  color: rgb(240, 248, 255);
+  padding: 4px 50px;
+  font-weight: 500;
+  font-size: large;
+  border: none;
+  border-radius: 1rem;
+}
+.all-listing{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:500;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+}
+.btn-edit{
+  background-color: #fe424d;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-right: 20px;
+  border: none;
+
+}
+.btn-delete{
+  background-color: rgb(5, 10, 5);
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: none;
+}
+.btn-div{
+
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+
+/* @media only screen and (max-width: 600px) {
+.navbar{
+  height: ;
+}
+} */
+@media only screen and (max-width: 600px) {
+
+  .images{
+      width: 80vw;
+      height: 30vw;
+  }
+  
+  }

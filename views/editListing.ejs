@@ -1,0 +1,58 @@
+<% include ./partials/header.ejs %>
+<style>
+    @media only screen and (max-width: 600px) {
+
+    .inputs{
+    width: 80vw;
+}    
+.row{
+    margin-right: 20vw;
+}
+.text{
+    font-size: 30px;
+    margin-bottom: 5vw;
+}
+    }
+</style>
+<h3 class="title text">Edit The Listing</h3>
+
+<div class="createList col-10 offset-1">
+
+    
+
+    <form action="/editlist/<%= data.id %>" method="post" enctype="multipart/form-data">
+        <div>
+        <label for="title"> Title</label>
+        <input required   class="inputs" type="text" id="title" value="<%= data.title %>" name="title">
+            <img src="<%= data.image.url %>" class="mt-2" style="height: 4rem; width: 6rem; object-fit: cover;" alt="">
+    </div>
+        <div class="mb-3 mt-2">
+            <label for="image" class="form-label">Upload New Listing Image</label>
+            <input type="file"
+             name="image"
+              
+              class="form-control inputs">
+        </div>
+        <div>
+        <label for="description"> Edit description</label>
+        <textarea required class="inputs"  name="description" id="" cols="30" rows="10"><%= data.description %></textarea>
+        </div>
+
+        <div>
+        <label for="price"> Edit price</label>
+        <input required class="inputs" type="number" value="<%= data.price %>" name="price">
+        </div>
+        <div>
+        <label for="location" class="mt-2"> Edit location</label>
+        <input required required class="inputs" type="text" value="<%= data.location %>" name="location">
+        </div>
+        <div>
+            <label for="country" class="mt-2"> Edit country</label>
+        <input required class="inputs" type="text" value="<%= data.country %>" name="country">
+        </div>
+        <button class="btn-edit" type="submit">Edit</button>
+ 
+     </form>
+
+</div>
+     <% include ./partials/footer.ejs %>

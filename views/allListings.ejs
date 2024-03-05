@@ -1,0 +1,218 @@
+<% include ./partials/header.ejs %>
+
+  <style>
+ .filter{
+  margin-left: 0;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+ }
+ .filter:hover{
+  
+  cursor: pointer;
+ }
+ .icons{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-right: 2vw;
+  opacity: 0.7;
+  display: flex;
+  text-align: center;
+ }
+ .icons:hover{
+  opacity: 1;
+ }
+ .form-toggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3vw;
+  border: 1px solid black;
+  height: 3rem;
+  padding: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+ }
+ .tax{
+  
+  display: none;
+ }
+ .images{
+  height: 23vw;
+ }
+
+ @media only screen and (max-width: 600px) {
+    body {
+      background-color: #ffff;
+    }
+    .remove{
+      display: none;
+    }
+    .form-toggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3vw;
+  border: 1px solid black;
+  height: 15vw;
+  padding: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+ }
+  .text{
+    font-size:px;
+  }
+  .form-check-input{
+    width: 2px;
+  }
+  .btnn{
+    height: 15px;
+    width: 5px;
+  }
+  body{
+    text-align: center;
+    background-color: #ffff;
+  }
+  .images{
+    width: 85vw;
+    height: 65vw;
+  }
+  .cards{
+    width: 9vw;
+  }
+  .card-text1{
+    margin-bottom: 4px;
+  }
+  .tax{
+    display: none;
+  }
+  
+  }
+  </style>
+ <body>
+  
+<div class="container">
+ 
+
+    <div class="filter ">
+      <div class="icons">
+       <div><i class="fa-solid fa-fire"></i>
+          <div> <p>Trending</p></div>
+        </div>
+       
+      </div>
+      <div class="icons">
+        <div><i class="fa-solid fa-mountain-sun"></i>
+          <div> <p>Mountains</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-solid fa-person-swimming"></i>
+          <div> <p>Awesome pools</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-solid fa-bed"></i>
+          <div> <p>Rooms</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-brands fa-fort-awesome"></i>
+          <div> <p>Castle</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-solid fa-umbrella-beach"></i>
+          <div> <p>Beach</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-regular fa-snowflake"></i>
+          <div> <p>Arctic</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-solid fa-cow"></i>
+          <div> <p>Farms</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-solid fa-tent"></i>
+          <div> <p>Camping</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-solid fa-tower-observation"></i>
+          <div> <p>Towers</p></div>
+        </div>
+      </div>
+      <div class="icons remove">
+        <div><i class="fa-solid fa-temperature-full"></i>
+          <div> <p>Desert</p></div>
+        </div>
+      </div>
+
+      <div class="form-toggle">
+        <div class="form-check-reverse form-switch">
+          <input class="form-check-input btnn" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label text" for="flexSwitchCheckDefault"> Taxes </label>
+        </div>
+      </div>
+      
+      
+      </div>
+      
+    </div>
+    
+
+  </div>
+   
+
+    <div class="row homeList row-cols-lg-3">
+        <% for (let list of lists) { %>
+          <div class="card cards" style="width: 26rem;">
+            <a href="/singleList/<%= list.id %>"> 
+              <img src="<%= list.image.url %>"  class="images card-img-top col-5"  alt="...">
+            </a>
+            <div class="card-body">
+              <p class="card-text1"><%= list.title %></p>
+              <p class="card-text"> &#x20B9;<%= list.price.toLocaleString('en-IN') %>/night <i class="tax">&nbsp;+18% GST</i></p>
+            </div>
+          </div>
+        <% } %>
+      </div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+      <script>
+        let toggler = document.getElementById("flexSwitchCheckDefault").addEventListener("click",()=>{
+          let tax = document.getElementsByClassName("tax");
+          
+          for(tax of tax){
+            if(tax.style.display != "inline")
+            tax.style.display = "inline";
+            else 
+            tax.style.display = "none";
+          }
+        })
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const toggleSwitch = document.getElementById("flexSwitchCheckDefault");
+    toggleSwitch.addEventListener("click", () => {
+      const taxes = document.querySelectorAll(".tax");
+      taxes.forEach(tax => {
+        tax.style.display = toggleSwitch.checked ? "inline" : "none";
+      });
+    });
+  });
+      </script>
+ </body> 
+
+    <% include ./partials/footer.ejs %>

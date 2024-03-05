@@ -1,0 +1,148 @@
+<% include ./partials/header.ejs %>
+
+<style>
+ .images{
+    width: 50vw;
+    height: 20rem;
+     object-fit: cover;
+ }
+ 
+@media only screen and (max-width: 600px) {
+
+
+.images{
+    width: 90vw;
+    height: 50vw;
+}
+.disp-title{
+    font-size: 25px;
+}
+.card-review{
+    width: 70vw;
+    font-size: small;
+}
+.row{
+    margin-top: 6vw;
+}
+.text{
+    font-size: medium;
+    margin-bottom: 2.5vw;
+
+}
+.cards{
+    font-size:20px ;
+}
+.btn-edit{
+    font-size: 16px;
+    height: 15vw;
+}
+.btn-delete{
+    font-size: 16px;
+    height: 15vw;
+}
+
+}
+</style>
+
+<div class="container"> 
+    <h2>Details:-</h2>
+
+    <h2 class="disp-title">Title: <%= data.title %></h2>
+    <img class="disp-image images" src="<%= data.image.url %>" style="" alt="">
+    <h4>Owned by: <%= data.owner?.username %></h4>
+        <h3 class="disp" >Description: <%= data.description %></h3>
+    <h3 class="disp-price">Price: &#x20B9;<%= data.price.toLocaleString('en-IN'); %></h3>
+    <h3 class="disp" >Location: <%= data.location %></h3>
+    <h3 class="disp" >Country: <%= data.country %></h3>
+
+
+    <% if (curruser && data.owner && data.owner._id && data.owner._id.equals(curruser._id)) { %>
+        <div class="btn-div">
+            <form action="/editlist/<%= data.id %>" method="get">
+                <button class="btn-edit" type="submit">Edit List</button>
+            </form>
+            <form action="/deletelist/<%= data.id %>" method="get">
+                <button class="btn-delete" type="submit">Delete List</button>
+            </form>
+        </div>
+    <% } %>
+    
+<hr>
+<br>
+    <%if(curruser){ %>
+
+    <form action="/addReview/<%=data.id%>" method="post">
+        <div class="form-floating">
+            <textarea required class="form-control" name="comment" placeholder="Leave a review here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <label  for="floatingTextarea2">Add Review</label>
+          </div>
+        <div>
+            <!-- <label for="customRange1" class="form-label">Add rating</label>
+                <input  type="range" class="form-range" id="customRange1" name="rating" min="1" max="5"  > -->
+                
+                <label for="customRange1" class="form-label">Add rating</label>
+                <fieldset class="starability-slot">
+                    <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked aria-label="No rating." />
+                    <input type="radio" id="first-rate1" name="rating" value="1" />
+                    <label for="first-rate1" title="Terrible">1 star</label>
+                    <input type="radio" id="first-rate2" name="rating" value="2" />
+                    <label for="first-rate2" title="Not good">2 stars</label>
+                    <input type="radio" id="first-rate3" name="rating" value="3" />
+                    <label for="first-rate3" title="Average">3 stars</label>
+                    <input type="radio" id="first-rate4" name="rating" value="4" />
+                    <label for="first-rate4" title="Very good">4 stars</label>
+                    <input type="radio" id="first-rate5" name="rating" value="5" />
+                    <label for="first-rate5" title="Amazing">5 stars</label>
+                  </fieldset>
+        </div>
+
+        
+
+        <div>
+            <button type="submit" class="btn btn-sm btn-danger mt-3">Add Review</button>
+
+        </div>
+
+    </form>
+
+   <% } %>
+
+
+    <hr>
+
+   
+    <h3>All Reviews</h3>
+ 
+    <ul>
+        <div class="row">
+   <% for(review of data.reviews){%>
+    <div class="card-review col-5" >
+        <div class="card-body">
+          <h4 class="card-title text">@<%= review.author.username %></h4>  
+          <p class="starability-result text" data-rating="<%= review.rating %>">
+          <h5 class="card-title cards "><%= review.comment %></h5>
+        
+          
+          </p>
+        </div>
+
+        
+      <div>
+
+        <form action="/deleteReview/<%= data.id %>/reviews/<%= review.id %>" method="post">
+            <button type="submit" class="btn btn-sm btn-dark mb-2">Delete </button>
+        </form>
+
+      
+
+    </div>
+      </div>
+
+    <%}%>
+    </div>
+    </ul>
+
+
+
+</div>   
+    <% include ./partials/footer.ejs %>
